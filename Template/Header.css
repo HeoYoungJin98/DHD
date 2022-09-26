@@ -1,0 +1,45 @@
+.Logo{
+    position: relative;
+    top: 0%;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+#Logo_Home_Big{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 10%;
+    padding-top: 2px;
+    color: gray;
+    font-size: 32px;
+}
+
+#Logo_Home_Small{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 10%;
+    padding-bottom: 2px;
+    color: gray;
+    font-size: 8px;
+}
+
+.Navbar{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid whitesmoke;
+    height: 40px;
+}
+
+.Menu{
+    display: flex;
+    list-style: none;
+    margin: 0px 7%;
+}
+
+.Menu li{
+    padding: 0px 12px;
+    width: 100px;
+}
