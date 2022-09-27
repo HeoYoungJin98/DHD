@@ -4,3 +4,32 @@ body{
     margin: 0;
     padding: 0;
 }
+
+ul{
+    list-style: none;
+    margin: 2px 10%;
+}
+
+#Content{
+    display: inline-block;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#Content_ul_1{
+    display: inline-flex;
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    margin: 0 6%;
+}
+
+#Content_ul_2{
+    display: inline-block;
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+}
+
+#SexChartCanvas{
+    border-right: 1px solid whitesmoke;
+}
+
