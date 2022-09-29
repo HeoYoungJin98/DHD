@@ -24,12 +24,16 @@ ul{
 }
 
 #Content_ul_2{
-    display: inline-block;
+    display: inline-flex;
     border-top: 1px solid whitesmoke;
     border-bottom: 1px solid whitesmoke;
+    margin: 0 6%;
 }
 
 #SexChartCanvas{
     border-right: 1px solid whitesmoke;
 }
 
+#BMI{
+    border-right: 1px solid whitesmoke;
+}

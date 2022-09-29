@@ -5,10 +5,11 @@ $(document).ready(function(){
         {
         },
         function(data){
+            //Data JSON to array
             let Data = JSON.parse(data);
-            let Man = parseInt(Data[0]);
-            let Woman = parseInt(Data[1]);
-            let location = document.getElementById("SexChartCanvas");
+            let Man = parseInt(Data[0]); //Count of Man
+            let Woman = parseInt(Data[1]); //Count of Woman
+            let location = document.getElementById("SexChartCanvas"); //DOM location
             //Load google chart API
             google.charts.load('current', {'packages':['corechart']});
             //Call Draw Chart
@@ -24,13 +25,13 @@ $(document).ready(function(){
         {},
         function(data){
             let Data = JSON.parse(data);
-            let a10 = parseInt(Data[0]);
-            let a20 = parseInt(Data[1]);
-            let a30 = parseInt(Data[2]);
-            let a40 = parseInt(Data[3]);
-            let a50 = parseInt(Data[4]);
-            let a60 = parseInt(Data[5]);
-            let a70 = parseInt(Data[6]);
+            let a10 = parseInt(Data[0]); //20-30
+            let a20 = parseInt(Data[1]); //30-40
+            let a30 = parseInt(Data[2]); //40-50
+            let a40 = parseInt(Data[3]); //50-60
+            let a50 = parseInt(Data[4]); //60-70
+            let a60 = parseInt(Data[5]); //70-80
+            let a70 = parseInt(Data[6]); //over 80
             let location = document.getElementById("Age");
             google.charts.load('current',{'packages':['corechart']});
             google.charts.setOnLoadCallback(function(){
@@ -53,6 +54,25 @@ $(document).ready(function(){
             google.charts.load('current',{'packages':['corechart']});
             google.charts.setOnLoadCallback(function(){
                 Create_Chart('참여자 BMI', location, '저체중', under, '정상', nomal, '과체중', over, '비만', obe);
+            })
+        }
+    )
+
+    //Bring Data about height
+    $.post(
+        "GET_Height.php",
+        {},
+        function(data){
+            let Data = JSON.parse(data);
+            let case_1 = parseInt(Data[0]);
+            let case_2 = parseInt(Data[1]);
+            let case_3 = parseInt(Data[2]);
+            let case_4 = parseInt(Data[3]);
+            let case_5 = parseInt(Data[4]);
+            let location = document.getElementById("Height");
+            google.charts.load('current',{'packages':['corechart']});
+            google.charts.setOnLoadCallback(function(){
+                Create_Chart('참여자 신장', location, '140 이상 150 미만', case_1, '150이상 160 미만', case_2, '160 이상 170 미만', case_3, '170 이상 180 미만', case_4, '180 이상', case_5);
             })
         }
     )
