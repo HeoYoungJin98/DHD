@@ -1,4 +1,4 @@
-function Create_Chart(){
+function Create_Bar_Chart(){
     //change arguments to array
     const array = Array.prototype.slice.call(arguments);
     let loc = array[1];
@@ -23,9 +23,10 @@ function Create_Chart(){
     var options = {
         'title': array[0],
         'width': 500,
-        'height': 250
+        'height': 250,
+        'legend': 'none'
     };
 
-    var chart = new google.visualization.PieChart(loc);
+    var chart = new google.visualization.BarChart(loc);
     chart.draw(data, options);
 }

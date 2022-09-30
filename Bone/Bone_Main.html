@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--For Bone Information-->
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../Template/Header.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../Font/Font.css">
+        <link rel="stylesheet" href="Bone_Main.css">
+    </head>
+    <body>
+        <!-- Template space -->
+        <div id="Template_Load">
+            <div id="template_space"></div>
+        </div>
+        <!-- Content div -->
+        <ul id="Content">
+            <!-- Left side  -->
+            <div id="Select_Disease">
+                <li><input type="radio" name="disease" id="arthritis" checked value="1">
+                <label for="arthritis" class="Font">관절염</label></li>
+                <li><input type="radio" name="disease" id="osteoporosis" value="2">
+                <label for="osteoporosis" class="Font">골다공증</label></li>
+            </div>
+            <!-- Right side(Charts) -->
+            <div id="Bone_Charts">
+                <ul id="Arthritis_All">
+                    <!-- Pie Chart -->
+                    <li class="Pie">
+                        <div id="All_Pie"></div>
+                    </li>
+                    <!-- bar Chart -->
+                    <li class="bar">
+                        <div id="All_Bar"></div>
+                    </li>
+                </ul>
+                <!-- Gender based -->
+                <ul id="Arthritis_Gender">
+                    <li class="Pie">
+                        <div id="Gender_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="Gender_Bar"></div>
+                    </li>
+                </ul>
+                <!-- Age based -->
+                <ul id="Arthritis_Age">
+                    <li class="Pie">
+                        <div id="Age_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="Age_bar"></div>
+                    </li>
+                </ul>
+            </div>
+        </ul>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="../Template/Header.js"></script>
+        <script src="../Create_Chart/Create_Chart.js"></script>
+        <script src="../Create_Chart/Create_Bar_Chart.js"></script>
+        <script src="Bone_Main.js"></script>
+    </body>
+</html>
