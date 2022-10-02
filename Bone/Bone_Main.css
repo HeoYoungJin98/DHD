@@ -31,7 +31,7 @@ input[type=radio]:checked + label{
 
 #Select_Disease{
     border-right: 1px solid whitesmoke;
-    width: 130px;
+    width: 180px;
     list-style: none;
     margin-left: 10%;
 }
@@ -44,7 +44,7 @@ input[type=radio]:checked + label{
     border-bottom: 1px solid whitesmoke;
 }
 
-#Arthritis_Gender{
+#Arthritis_Gender, #Arthritis_Age{
     display: inline-flex;
     margin: 0%;
     padding: 0%;
