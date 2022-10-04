@@ -31,12 +31,12 @@ input[type=radio]:checked + label{
 
 #Select_Disease{
     border-right: 1px solid whitesmoke;
-    width: 180px;
+    width: 250px;
     list-style: none;
     margin-left: 10%;
 }
 
-#Arthritis_All{
+#Arthritis_All, #Osteoporosis_All{
     display: inline-flex;
     margin:0%;
     padding: 0%;
@@ -44,7 +44,7 @@ input[type=radio]:checked + label{
     border-bottom: 1px solid whitesmoke;
 }
 
-#Arthritis_Gender, #Arthritis_Age{
+#Arthritis_Gender, #Arthritis_Age, #Osteoporosis_Gender, #Osteoporosis_Age{
     display: inline-flex;
     margin: 0%;
     padding: 0%;
