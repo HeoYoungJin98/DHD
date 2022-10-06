@@ -57,7 +57,7 @@ $(document).ready(function(){
                     google.charts.load('current',{'packages':['corechart']});
                     google.charts.setOnLoadCallback(function(){
                         Create_Chart('관절염 현재 유병 여부(대전시)',location, '무응답', Arthritis[0], '없음', Arthritis[1], '있음', Arthritis[2], '의사 진단 받지 않음', Arthritis[3]);
-                        Create_Bar_Chart('관절염 환자 비율(단위: %)', location_Bar, '대전시 관절염 환자 비율', avg(Arthritis[2],Sum), '전국 관절염 환자 비율', Percent_All);
+                        Create_Bar_Chart('관절염 환자 비율 비교(단위: %)', location_Bar, '대전시 관절염 환자 비율', avg(Arthritis[2],Sum), '전국 관절염 환자 비율', Percent_All);
                     });
                 }else{
                     let Osteoporosis = [];
@@ -72,7 +72,7 @@ $(document).ready(function(){
                     google.charts.load('current',{'packages':['corechart']});
                     google.charts.setOnLoadCallback(function(){
                         Create_Chart('골다공증 현재 유병 여부(대전시)',location, '모름, 무응답', Osteoporosis[3], '없음', Osteoporosis[0], '있음', Osteoporosis[1], '비해당', Osteoporosis[2]);
-                        Create_Bar_Chart('골다공증 환자 비율(단위: %)', location_Bar, '대전시 골다공증 환자 비율', avg(Osteoporosis[1],Sum), '전국 골다공증 환자 비율', Percent_All);
+                        Create_Bar_Chart('골다공증 환자 비율 비교(단위: %)', location_Bar, '대전시 골다공증 환자 비율', avg(Osteoporosis[1],Sum), '전국 골다공증 환자 비율', Percent_All);
                     })
                 }
             }
@@ -103,7 +103,7 @@ $(document).ready(function(){
                     google.charts.load('current',{'packages':['corechart']});
                     google.charts.setOnLoadCallback(function(){
                         Create_Chart('관절염 환자 성비(단위: 명)', location, '남자', Arthritis[0], '여자', Arthritis[1]);
-                        Create_Bar_Chart('관절염 환자 성비(단위: %)', location_Bar, '대전시 남자', avg(Arthritis[0],Sum), '전국 남자', avg(Man_All,All),'대전시 여자', avg(Arthritis[1],Sum), '전국 여자', avg(Woman_All,All));
+                        Create_Bar_Chart('관절염 환자 성비 비교(단위: %)', location_Bar, '대전시 남자', avg(Arthritis[0],Sum), '전국 남자', avg(Man_All,All),'대전시 여자', avg(Arthritis[1],Sum), '전국 여자', avg(Woman_All,All));
                     });
                 }else{
                     let Osteoporosis = [];
@@ -120,47 +120,70 @@ $(document).ready(function(){
                     google.charts.load('current',{'packages':['corechart']});
                     google.charts.setOnLoadCallback(function(){
                         Create_Chart('골다공증 환자 성비(단위: 명)', location, '남자', Osteoporosis[0], '여자', Osteoporosis[1]);
-                        Create_Bar_Chart('골다공증 환자 성비(단위: %)', location_Bar, '대전시 남자', avg(Osteoporosis[0],Sum), '전국 남자', avg(Man_All,All),'대전시 여자', avg(Osteoporosis[1],Sum), '전국 여자', avg(Woman_All,All));
+                        Create_Bar_Chart('골다공증 환자 성비 비교(단위: %)', location_Bar, '대전시 남자', avg(Osteoporosis[0],Sum), '전국 남자', avg(Man_All,All),'대전시 여자', avg(Osteoporosis[1],Sum), '전국 여자', avg(Woman_All,All));
                     });
                 }
             }
         )
     }
-
-    function Get_Rate_Age(value){
-
-    }
-
     //Age Based Data
-    $.post(
-        "Get_Rate_Age.php",
-        {},
-        function(data){
-            let Data = JSON.parse(data);
-            let d30 = parseInt(Data[0]); //30-40
-            let d40 = parseInt(Data[1]); //40-50
-            let d50 = parseInt(Data[2]); //50-60
-            let d60 = parseInt(Data[3]); //60-70
-            let d70 = parseInt(Data[4]); //70-80
-            let d80 = parseInt(Data[5]); //over 80
-            let d_all = d30 + d40 + d50 + d60 + d70 + d80;
-            let location_Pie = document.getElementById("Ar_Age_Pie");
-            let location_Bar = document.getElementById("Ar_Age_bar");
-            let a20 = 2; //=COUNTIFS(BR2:BR7360,1,K2:K7360,20)
-            let a30 = 3; //==COUNTIFS(BR2:BR7360,1,K2:K7360,30)
-            let a40 = 16; //=COUNTIFS(BR2:BR7360,1,K2:K7360,40)
-            let a50 = 72; //=COUNTIFS(BR2:BR7360,1,K2:K7360,50)
-            let a60 = 222; //=COUNTIFS(BR2:BR7360,1,K2:K7360,60)
-            let a70 = 221; //=COUNTIFS(BR2:BR7360,1,K2:K7360,70)
-            let a80 = 89; //=COUNTIFS(BR2:BR7360,1,K2:K7360,80)
-            let a_all = a20 + a30 + a40 + a50 + a60 + a70 + a80;
-            google.charts.load('current',{'packages':['corechart']});
-            google.charts.setOnLoadCallback(function(){
-                Create_Chart('나이대별 관절염 환자 수',location_Pie, '20대',0,'30대',d30,'40대',d40,'50대',d50,'60대',d60,'70대',d70,'80대',d80)
-                Create_Bar_Chart('관절염 환자 수 비율(대전시, 전국)',location_Bar, '대전시 20대', 0, '전국 20대', avg(a20,a_all), '대전시 30대', avg(d30,d_all), '전국 30대', avg(a30,a_all), '대전시 40대', avg(d40,d_all), '전국 40대', avg(a40,a_all), '대전시 50대', avg(d50,d_all), '전국 50대', avg(a50, a_all), '대전시 60대', avg(d60,d_all), '전국 60대', avg(a60,a_all), '대전시 70대', avg(d70,d_all), '전국 70대',avg(a70,a_all), '대전시 80대', avg(d80,d_all), '전국 80대', avg(a80,a_all));
-            });
-        }
-    )
-
+    function Get_Rate_Age(value){
+        $.post(
+            "Get_Rate_Age.php",
+            {
+                Code: value,
+            },
+            function(data){
+                let Data = JSON.parse(data);
+                if(value == 1){//Case Arthritis
+                    let Arthritis = [];
+                    let rate = [];
+                    push(Arthritis,Data); //[30-40, 40-50, 50-60, 60-70, 70-80, over 80]
+                    let location_Pie = document.getElementById("Ar_Age_Pie");
+                    let location_Bar = document.getElementById("Ar_Age_bar");
+                    let Sum = 0;
+                    for(let i = 0; i<Arthritis.length; i++){
+                        Sum += Arthritis[i];
+                    }
+                    for(let i = 0; i<Arthritis.length; i++){
+                        rate.push(avg(Arthritis[i],Sum));
+                    }
+                    let Sum_All = 625;
+                    let Ar_All = [2, 3, 16, 72, 222, 221, 89];
+                    for(let i = 0; i<Ar_All.length; i++){
+                        Ar_All[i] = avg(Ar_All[i], Sum_All);
+                    }
+                    google.charts.load('current',{'packages':['corechart']});
+                    google.charts.setOnLoadCallback(function(){
+                        Create_Chart('나이별 관절염 환자 수(단위: 명)', location_Pie, '20대', Arthritis[0], '30대', Arthritis[1], '40대', Arthritis[2], '50대', Arthritis[3], '60대', Arthritis[4], '70대', Arthritis[5], '80대 이상', Arthritis[6]);
+                        Create_Bar_Chart('나이별 관절염 환자 비율 비교(단위: %)', location_Bar, '대전시 20대', 0, '전국 20대', Ar_All[0], '대전시 30대', rate[0], '전국 30대', Ar_All[1], '대전시 40대', rate[1], '전국 40대', Ar_All[2], '대전시 50대', rate[2], '전국 50대', Ar_All[3], '대전시 60대', rate[3], '전국 60대', Ar_All[4], '대전시 70대', rate[4], '전국 70대', Ar_All[5], '대전시 80대 이상', rate[5], '전국 80대 이상', Ar_All[6]);
+                    })
+                }else{
+                    let Osteoporosis = [];
+                    let rate = [];
+                    push(Osteoporosis, Data);// [50-60, 60-70, 70-80, over80]
+                    let location_Pie = document.getElementById("Os_Age_Pie");
+                    let location_Bar = document.getElementById("Os_Age_bar");
+                    let Sum = 0;
+                    for(let i = 0; i<Osteoporosis.length; i++){
+                        Sum += Osteoporosis[i];
+                    }
+                    for(let i = 0; i<Osteoporosis.length; i++){
+                        rate.push(avg(Osteoporosis[i],Sum));
+                    }
+                    let Sum_All = 356; //From Excel Data
+                    let Os_All = [1, 4, 27, 130, 132, 62];//[30-40,40-50, ...]
+                    for(let i = 0; i<Osteoporosis.length; i++){
+                        Os_All[i] = avg(Os_All[i],Sum_All);
+                    }
+                    google.charts.load('current',{'packages':['corechart']});
+                    google.charts.setOnLoadCallback(function(){
+                        Create_Chart('나이별 골다공증 환자 수(단위: 명)', location_Pie, '50대', Osteoporosis[0], '60대', Osteoporosis[1], '70대', Osteoporosis[2], '80대 이상', Osteoporosis[3]);
+                        Create_Bar_Chart('나이별 골다공증 환자 비율 비교(단위: %)', location_Bar, '대전시 30대', 0, '전국 30대', Os_All[0], '대전시 40대', 0, '전국 40대', Os_All[1], '대전시 50대', rate[0], '전국 50대', Os_All[2], '대전시 60대', rate[1], '전국 60대', Os_All[3], '대전시 70대', rate[2], '전국 70대', Os_All[4], '대전시 80대 이상', rate[3], '전국 80대 이상', Os_All[5]);
+                    })
+                }
+            }
+        )
+    }
 
 })

@@ -1,7 +1,15 @@
 <?php
 include '../../Conn/Conn.php';
 
-$sql = "SELECT COUNT(*) FROM Health WHERE arthritis = 1 GROUP BY AGE";
+$Code = $_POST["Code"];
+$sql = null;
+
+if($Code == 1){
+    $sql = "SELECT COUNT(*) FROM Health WHERE arthritis = 1 GROUP BY AGE";
+}else{
+    $sql = "SELECT COUNT(*) FROM Health WHERE Osteoporosis = 1 GROUP BY AGE";
+}
+
 $Data = mysqli_query($db_conn, $sql);
 $Result_Array = array();
 
