@@ -1,4 +1,56 @@
 $(document).ready(function(){
+    //Create Table Function.
+    //location = div location. arr = array. Mode = 1to8 or 8to16
+    function CreateTable(location,arr,Mode){
+        let Sarr = ['20대','30대','40대','50대','60대','70대','80대 이상'];
+        let array = arr;
+        let Row = array.length / 16;
+        let r = 0;
+        while(r < Row){
+            let Create_Tr = document.createElement("tr");
+            let loc = location;
+            loc.appendChild(Create_Tr);
+            if(Mode == 1){
+                for(let i = 0; i<9; i++){
+                    let Create_Td = document.createElement("td");
+                    if(i == 0){
+                        let Text = document.createTextNode(Sarr[r]);
+                        Create_Td.appendChild(Text);
+                    }else{
+                        let Text = document.createTextNode(array[r*16+(i-1)]);
+                        Create_Td.appendChild(Text);
+                    }
+                    Create_Tr.appendChild(Create_Td);
+                }
+            }else if(Mode == 2){
+                for(let i = 8; i<17; i++){
+                    let Create_Td = document.createElement("td");
+                    if(i == 8){
+                        let Text = document.createTextNode(Sarr[r]);
+                        Create_Td.appendChild(Text);
+                    }else{
+                        let Text = document.createTextNode(array[r*16+(i-1)]);
+                        Create_Td.appendChild(Text);
+                    }
+                    Create_Tr.appendChild(Create_Td);
+                }
+            }else if(Mode == 3){//Get the number of people by disease
+                for(let i = 0; i<17; i++){
+                    let Create_Td = document.createElement("td");
+                    if(i == 0){
+                        let Text = document.createTextNode('인원 수');
+                        Create_Td.appendChild(Text);
+                    }else{
+                        let Text = document.createTextNode(array[r*16+(i-1)]);
+                        Create_Td.appendChild(Text);
+                    }
+                    Create_Tr.appendChild(Create_Td);
+                }
+            }
+            r++;
+        }
+    }
+
     //Bring Data about Sex Ratio
     $.post(
         "Get_Sex_ratio.php",
@@ -74,6 +126,30 @@ $(document).ready(function(){
             google.charts.setOnLoadCallback(function(){
                 Create_Chart('참여자 신장', location, '140 이상 150 미만', case_1, '150이상 160 미만', case_2, '160 이상 170 미만', case_3, '170 이상 180 미만', case_4, '180 이상', case_5);
             })
+        }
+    )
+
+    //Bring the number of people by disease
+    $.post(
+        "Get_Num_Disease.php",
+        {},
+        function(data){
+            let Data = JSON.parse(data);
+            let loc = document.getElementById("Result_disease_Num");
+            CreateTable(loc, Data, 3);
+        }
+    )
+
+    //Bring data about all disease
+    $.post(
+        "Get_All_Disease.php",
+        {},
+        function(data){
+            let Data = JSON.parse(data);
+            let loc1 = document.getElementById("Result_Part_1to8");
+            let loc2 = document.getElementById("Result_Part_8to16");
+            CreateTable(loc1, Data, 1);
+            CreateTable(loc2, Data, 2);
         }
     )
 })
