@@ -3,6 +3,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="Main.css">
         <link rel="stylesheet" href="../Template/Header.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -27,11 +28,53 @@
                 <li class="Circle_graph">
                     <div id="BMI"></div>
                 </li>
+                <li class="Chart">
+                    <div id="BMI_Gender">
+                        <div class="table_part_BMI">
+                            <div class="Table_Label"><p class="Font">대전시 비만도 인구 수(단위: 명)</p></div>
+                            <table id="BMI_Gender_Table">
+                                <thead>
+                                    <tr class="class_tr">
+                                        <td><p class="Font">비만도/성별</p></td>
+                                        <td><p class="Font">저체중</p></td>
+                                        <td><p class="Font">정상</p></td>
+                                        <td><p class="Font">과체중</p></td>
+                                        <td><p class="Font">비만</p></td>
+                                        <td><p class="Font">비측정</p></td>
+                                    </tr>
+                                </thead>
+                                <tbody id="Result_BMI_Gender"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+                <ul id="Content_ul_Gender">
                 <li class="Circle_graph">
                     <div id="Height"></div>
                 </li>
+                <li class="Chart">
+                    <div id="Height_Gender">
+                        <div class="table_part_Height">
+                            <div class="Table_Lable"><p class="Font">대전시 인구 키 분포 수(단위: 명)</p></div>
+                            <table id="Height_Gender_Table">
+                                <thead>
+                                    <tr class="class_tr">
+                                        <td><p class="Font">키 분포/성별</p></td>
+                                        <td><p class="Font">140~150</p></td>
+                                        <td><p class="Font">150~160</p></td>
+                                        <td><p class="Font">160~170</p></td>
+                                        <td><p class="Font">170~180</p></td>
+                                        <td><p class="Font">180~</p></td>
+                                    </tr>
+                                </thead>
+                                <tbody id="Result_Height_Gender"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
             </ul>
-            <div class="Table_Label"><p class="Font">대전시 질병별 인원 현황</p></div>
+            <div class="Table_Label"><p class="Font">대전시 질병별 인원 현황(단위: 명)</p></div>
             <div class="table_part">
                 <div id="disease_Num_Table">
                     <table id="disease_Num">
@@ -62,7 +105,7 @@
                     </table>
                 </div>
             </div>
-            <div class="Table_Label"><p class="Font">대전시 나이대별 질병 현황</p></div>
+            <div class="Table_Label"><p class="Font">대전시 나이대별 질병 현황(단위: 명)</p></div>
             <div class="table_part">
                 <div id="table_1to8_div">
                     <table id="table_1to8">

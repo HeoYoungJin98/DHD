@@ -23,7 +23,7 @@ ul{
     margin: 0 6%;
 }
 
-#Content_ul_2{
+#Content_ul_2, #Content_ul_Gender{
     display: inline-flex;
     border-bottom: 1px solid whitesmoke;
     margin: 0 6%;
@@ -33,7 +33,7 @@ ul{
     border-right: 1px solid whitesmoke;
 }
 
-#BMI{
+#BMI, #Height{
     border-right: 1px solid whitesmoke; 
 }
 
@@ -54,4 +54,12 @@ th,td{
 
 .class_tr{
     background-color: rgb(194, 252, 252);
+}
+
+.table_part_BMI, .table_part_Height{
+    margin: 0 6%;
+}
+
+#BMI_Gender_Table, #Height_Gender_Table{
+    width: 500px;
 }

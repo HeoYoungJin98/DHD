@@ -4,7 +4,12 @@ $(document).ready(function(){
     function CreateTable(location,arr,Mode){
         let Sarr = ['20대','30대','40대','50대','60대','70대','80대 이상'];
         let array = arr;
-        let Row = array.length / 16;
+        let Row = 0;
+        if(Mode <=3 ){
+            Row = array.length / 16;
+        }else{
+            Row = array.length / 5;
+        }
         let r = 0;
         while(r < Row){
             let Create_Tr = document.createElement("tr");
@@ -42,6 +47,23 @@ $(document).ready(function(){
                         Create_Td.appendChild(Text);
                     }else{
                         let Text = document.createTextNode(array[r*16+(i-1)]);
+                        Create_Td.appendChild(Text);
+                    }
+                    Create_Tr.appendChild(Create_Td);
+                }
+            }else if(Mode == 4){ // BMI_Gender Table
+                for(let i = 0; i<6; i++){
+                    let Create_Td = document.createElement("td");
+                    if(i == 0){
+                        if(r == 0){
+                            let Text = document.createTextNode("남성");
+                            Create_Td.appendChild(Text);
+                        }else{
+                            let Text = document.createTextNode("여성");
+                            Create_Td.appendChild(Text);
+                        }
+                    }else{
+                        let Text = document.createTextNode(array[r*5+(i-1)]);
                         Create_Td.appendChild(Text);
                     }
                     Create_Tr.appendChild(Create_Td);
@@ -136,7 +158,6 @@ $(document).ready(function(){
         function(data){
             let Data = JSON.parse(data);
             let loc = document.getElementById("Result_disease_Num");
-            console.log(Data);
             CreateTable(loc, Data, 3);
         }
     )
@@ -151,6 +172,27 @@ $(document).ready(function(){
             let loc2 = document.getElementById("Result_Part_8to16");
             CreateTable(loc1, Data, 1);
             CreateTable(loc2, Data, 2);
+        }
+    )
+
+    //Bring data about BMI_Gender
+    $.post(
+        "Get_BMI_Gender.php",
+        {},
+        function(data){
+            let Data = JSON.parse(data);
+            let loc = document.getElementById("Result_BMI_Gender");
+            CreateTable(loc, Data, 4);
+        }
+    )
+
+    $.post(
+        "Get_Height_Gender.php",
+        {},
+        function(data){
+            let Data = JSON.parse(data);
+            let loc = document.getElementById("Result_Height_Gender");
+            CreateTable(loc,Data,4);
         }
     )
 })
