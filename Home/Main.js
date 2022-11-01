@@ -136,6 +136,7 @@ $(document).ready(function(){
         function(data){
             let Data = JSON.parse(data);
             let loc = document.getElementById("Result_disease_Num");
+            console.log(Data);
             CreateTable(loc, Data, 3);
         }
     )
