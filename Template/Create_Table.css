@@ -1,0 +1,13 @@
+table{
+    width: 100%;
+    border: 1px solid whitesmoke;
+    border-collapse: collapse;
+}
+
+th,td{
+    border: 1px solid whitesmoke;
+}
+
+.class_tr{
+    background-color: rgb(194, 252, 252);
+}

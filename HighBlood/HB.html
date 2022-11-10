@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../Font/Font.css">
         <link rel="stylesheet" href="../Template/Create_Table.css">
-        <link rel="stylesheet" href="Lung_Main.css">
+        <link rel="stylesheet" href="HB.css">
     </head>
     <body>
         <!-- Template space -->
@@ -20,43 +20,43 @@
         <ul id="Content">
             <!-- Left side  -->
             <div id="Select_Disease">
-                <li><input type="radio" name="disease" id="asthma" checked value="1">
-                <label for="asthma" class="Font">천식</label></li>
+                <li><input type="radio" name="disease" id="HB" checked value="1">
+                <label for="HB" class="Font">고혈압</label></li>
             </div>
             <!-- asthma -->
-            <div id="asthma_Charts">
-                <ul id="asthma_All">
+            <div id="HB_Charts">
+                <ul id="HB_All">
                     <li class="Pie">
-                        <div id="As_All_Pie"></div>
+                        <div id="HB_All_Pie"></div>
                     </li>
                     <li class="bar">
-                        <div id="As_All_Bar"></div>
+                        <div id="HB_All_Bar"></div>
                     </li>
                 </ul>
-                <table id="Asthma_Rate_Table">
+                <table id="HB_Rate_Table">
                     <thead id="Rate_Head"></thead>
-                    <tbody id="Result_Asthma_Rate"></tbody>
+                    <tbody id="Result_HB_Rate"></tbody>
                 </table>
                 <!-- Gender based -->
-                <ul id="asthma_Gender">
+                <ul id="HB_Gender">
                     <li class="Pie">
-                        <div id="As_Gender_Pie"></div>
+                        <div id="HB_Gender_Pie"></div>
                     </li>
                     <li class="bar">
-                        <div id="As_Gender_Bar"></div>
+                        <div id="HB_Gender_Bar"></div>
                     </li>
                 </ul>
-                <table id="Asthma_Gender_Table">
+                <table id="HB_Gender_Table">
                     <thead id="Gender_Head"></thead>
-                    <tbody id="Result_Asthma_Gender"></tbody>
+                    <tbody id="Result_HB_Gender"></tbody>
                 </table>
                 <!-- Age based -->
-                <ul id="asthma_Age">
+                <ul id="HB_Age">
                     <li class="Pie">
-                        <div id="As_Age_Pie"></div>
+                        <div id="HB_Age_Pie"></div>
                     </li>
                     <li class="bar">
-                        <div id="As_Age_bar"></div>
+                        <div id="HB_Age_bar"></div>
                     </li>
                 </ul>
             </div>
@@ -69,6 +69,6 @@
         <script src="../Create_Chart/Create_Bar_Chart.js"></script>
         <script src="../Template/Basic.js"></script>
         <script src="../Template/Create_Table.js"></script>
-        <script src="Lung_Main.js"></script>
+        <script src="HB.js"></script>
     </body>
 </html>
