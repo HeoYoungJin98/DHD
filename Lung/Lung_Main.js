@@ -46,7 +46,7 @@ $(document).ready(function(){
                 google.charts.load('current',{'packages':['corechart']});
                 google.charts.setOnLoadCallback(function(){
                     Create_Chart('천식 환자 성비(대전시)', loc_Pie, '남성', Asthma[0], '여성', Asthma[1]);
-                    Create_Bar_Chart('천식 환자 비교(단위: %)', loc_Bar, '대전시 남성', Asthma[0],'전국 남성', 5,'대전시 여성', Asthma[1],'전국 여성', 3);
+                    Create_Bar_Chart('천식 환자 비교(단위: %)', loc_Bar, '대전시 남성', avg(Asthma[0], sum),'전국 남성', avg(52, 119),'대전시 여성', avg(Asthma[1],sum),'전국 여성', avg(67, 119));
                 })
                 Create_Table(Data, loc_head, loc_body);
             }

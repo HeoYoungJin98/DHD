@@ -25,6 +25,9 @@ function Create_Table(array, loc_head, loc_body){
         let Create_Tr2 = document.createElement("tr");
         loc_body.appendChild(Create_Tr2);
         for(let i=0; i<c; i++){
+            if(array[r*Row + 1][i] == null){
+                array[r*Row + 1][i] = 0;
+            }
             let Create_Td = document.createElement("td");
             let Text = document.createTextNode(array[r*Row + 1][i]);
             let p = document.createElement("p");

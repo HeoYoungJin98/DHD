@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--For Lung Information-->
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../Template/Header.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../Font/Font.css">
+        <link rel="stylesheet" href="../Template/Create_Table.css">
+        <link rel="stylesheet" href="Diabetes.css">
+    </head>
+    <body>
+        <!-- Template space -->
+        <div id="Template_Load">
+            <div id="template_space"></div>
+        </div>
+        <!-- Content div -->
+        <ul id="Content">
+            <!-- Left side  -->
+            <div id="Select_Disease">
+                <li><input type="radio" name="disease" id="Diabetes" checked value="1">
+                <label for="Diabetes" class="Font">당뇨병</label></li>
+            </div>
+            <!-- asthma -->
+            <div id="Diabetes_Charts">
+                <ul id="Diabetes_All">
+                    <li class="Pie">
+                        <div id="Diabetes_All_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="Diabetes_All_Bar"></div>
+                    </li>
+                </ul>
+                <table id="Diabetes_Rate_Table">
+                    <thead id="Rate_Head"></thead>
+                    <tbody id="Result_Diabetes_Rate"></tbody>
+                </table>
+                <!-- Gender based -->
+                <ul id="Diabetes_Gender">
+                    <li class="Pie">
+                        <div id="Diabetes_Gender_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="Diabetes_Gender_Bar"></div>
+                    </li>
+                </ul>
+                <table id="Diabetes_Gender_Table">
+                    <thead id="Gender_Head"></thead>
+                    <tbody id="Result_Diabetes_Gender"></tbody>
+                </table>
+                <!-- Age based -->
+                <ul id="Diabetes_Age">
+                    <li class="Pie">
+                        <div id="Diabetes_Age_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="Diabetes_Age_bar"></div>
+                    </li>
+                </ul>
+            </div>
+        </ul>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="../Template/Header.js"></script>
+        <script src="../Create_Chart/Create_Chart.js"></script>
+        <script src="../Create_Chart/Create_Bar_Chart.js"></script>
+        <script src="../Template/Basic.js"></script>
+        <script src="../Template/Create_Table.js"></script>
+        <script src="Diabetes.js"></script>
+    </body>
+</html>

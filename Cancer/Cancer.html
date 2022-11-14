@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--For Bone Information-->
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../Template/Header.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../Font/Font.css">
+        <link rel="stylesheet" href="../Template/Create_Table.css">
+        <link rel="stylesheet" href="Cancer.css">
+    </head>
+    <body>
+        <!-- Template space -->
+        <div id="Template_Load">
+            <div id="template_space"></div>
+        </div>
+        <!-- Content div -->
+        <ul id="Content">
+            <!-- Left side  -->
+            <div id="Select_Disease">
+                <li><input type="radio" name="disease" id="stomach" checked value="1">
+                <label for="stomach" class="Font">위암</label></li>
+                <li><input type="radio" name="disease" id="liver" value="2">
+                <label for="liver" class="Font">간암</label></li>
+            </div>
+            <!-- Right side(Charts) -->
+            <div id="stomach_Charts">
+                <ul id="stomach_All">
+                    <!-- Pie Chart -->
+                    <li class="Pie">
+                        <div id="stomach_All_Pie"></div>
+                    </li>
+                    <!-- bar Chart -->
+                    <li class="bar">
+                        <div id="stomach_All_Bar"></div>
+                    </li>
+                </ul>
+                <table id="stomach_Rate_Table">
+                    <thead id="Rate_stomach_Head"></thead>
+                    <tbody id="Result_stomach_Rate"></tbody>
+                </table>
+                <!-- Gender based -->
+                <ul id="stomach_Gender">
+                    <li class="Pie">
+                        <div id="stomach_Gender_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="stomach_Gender_Bar"></div>
+                    </li>
+                </ul>
+                <table id="stomach_Gender_Table">
+                    <thead id="Gender_stomach_Head"></thead>
+                    <tbody id="Result_stomach_Gender"></tbody>
+                </table>
+                <!-- Age based -->
+                <ul id="stomach_Age">
+                    <li class="Pie">
+                        <div id="stomach_Age_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="stomach_Age_bar"></div>
+                    </li>
+                </ul>
+            </div>
+            <div id="liver_Charts">
+                <ul id="liver_All">
+                    <li class="Pie">
+                        <div id="liver_All_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="liver_All_Bar"></div>
+                    </li>
+                </ul>
+                <table id="liver_Rate_Table">
+                    <thead id="Rate_liver_Head"></thead>
+                    <tbody id="Result_liver_Rate"></tbody>
+                </table>
+                <!-- Gender based -->
+                <ul id="liver_Gender">
+                    <li class="Pie">
+                        <div id="liver_Gender_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="liver_Gender_Bar"></div>
+                    </li>
+                </ul>
+                <table id="liver_Gender_Table">
+                    <thead id="Gender_liver_Head"></thead>
+                    <tbody id="Result_liver_Gender"></tbody>
+                </table>
+                <!-- Age based -->
+                <ul id="liver_Age">
+                    <li class="Pie">
+                        <div id="liver_Age_Pie"></div>
+                    </li>
+                    <li class="bar">
+                        <div id="liver_Age_bar"></div>
+                    </li>
+                </ul>
+            </div>
+        </ul>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="../Template/Header.js"></script>
+        <script src="../Create_Chart/Create_Chart.js"></script>
+        <script src="../Create_Chart/Create_Bar_Chart.js"></script>
+        <script src="../Template/Basic.js"></script>
+        <script src="../Template/Create_Table.js"></script>
+        <script src="Cancer.js"></script>
+    </body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 include '../../Conn/Conn.php';
 
-$sql = "SELECT COUNT(CASE WHEN HighBlood = 0 THEN 0 end) as '없음', COUNT(CASE WHEN HighBlood = 1 THEN 1 end) as '있음', COUNT(CASE WHEN HighBlood = 8 THEN 2 end) as '모름', COUNT(CASE WHEN HighBlood = 9 OR HighBlood is NULL THEN 3 end) as '무응답' FROM Health";
+$sql = "SELECT COUNT(CASE WHEN diabetes = 0 THEN 0 end) as '없음', COUNT(CASE WHEN diabetes = 1 THEN 1 end) as '있음', COUNT(CASE WHEN diabetes = 8 THEN 2 end) as '모름', COUNT(CASE WHEN diabetes = 9 OR diabetes is NULL THEN 3 end) as '무응답' FROM Health";
 
 $Data = mysqli_query($db_conn, $sql);
 $Result_Array = array();
