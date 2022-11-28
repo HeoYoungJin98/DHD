@@ -20,7 +20,7 @@ $(document).ready(function(){
                 google.charts.load('current',{'packages':['corechart']});
                 google.charts.setOnLoadCallback(function(){
                     Create_Chart('비염 현재 유병 여부(대전시)', loc_Pie, '있음', Rhinitis[0], '없음', Rhinitis[1], '비해당', Rhinitis[2], '모름', Rhinitis[3]);
-                    Create_Bar_Chart('비염 환자 비율 비교(단위: %)', loc_Bar, '대전시 비염 환자 비율', avg(Depression[1], sum), '전국 비염 환자 비율', avg(675,6133));
+                    Create_Bar_Chart('비염 환자 비율 비교(단위: %)', loc_Bar, '대전시 비염 환자 비율', avg(Rhinitis[1], sum), '전국 비염 환자 비율', avg(675,6133));
                 })
                 Create_Table(Data, loc_head, loc_body);
             }
