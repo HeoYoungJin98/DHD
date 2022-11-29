@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../Font/Font.css">
+        <link rel="stylesheet" href="../Template/Create_Table.css"></link>
         <link rel="stylesheet" href="Bone_Main.css">
     </head>
     <body>
@@ -54,6 +55,11 @@
                         <div id="Ar_Age_bar"></div>
                     </li>
                 </ul>
+                <label for="Arthritis_Table"><p class="Font">대전시 관절염 환자 영양섭취 평균</p></label>
+                <table id="Arthritis_Table">
+                    <thead id="Ar_nutrition_Head"></thead>
+                    <tbody id="Ar_nutrition_Body"></tbody>
+                </table>
             </div>
             <div id="Osteoporosis_Charts">
                 <ul id="Osteoporosis_All">
@@ -82,6 +88,11 @@
                         <div id="Os_Age_bar"></div>
                     </li>
                 </ul>
+                <label for="Osteoporosis_Table"><p class="Font">대전시 골다공증 환자 영양섭취 평균</p></label>
+                <table id="Osteoporosis_Table">
+                    <thead id="Os_nutrition_Head"></thead>
+                    <tbody id="Os_nutrition_Body"></tbody>
+                </table>
             </div>
         </ul>
 
@@ -90,6 +101,8 @@
         <script src="../Template/Header.js"></script>
         <script src="../Create_Chart/Create_Chart.js"></script>
         <script src="../Create_Chart/Create_Bar_Chart.js"></script>
+        <script src="../Template/Basic.js"></script>
+        <script src="../Template/Create_Table.js"></script>
         <script src="Bone_Main.js"></script>
     </body>
 </html>

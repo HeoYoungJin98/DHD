@@ -2,6 +2,7 @@ $(document).ready(function(){
     Get_Rate(1)
     Get_Rate_Gender(1)
     Get_Rate_Age(1)
+    Get_nutrition(1);
     //Click arthritis or osteoporosis
     $("input[name=disease]").on("click",function(){
         let disease_code = $(this).val(); //clicked value
@@ -12,12 +13,14 @@ $(document).ready(function(){
             Get_Rate(1)
             Get_Rate_Gender(1)
             Get_Rate_Age(1)
+            Get_nutrition(1);
         }else{
             $("#Osteoporosis_Charts").css('display','');
             $("#Arthritis_Charts").css('display','none');
             Get_Rate(2)
             Get_Rate_Gender(2)
             Get_Rate_Age(2)
+            Get_nutrition(2)
         }
     })
 
@@ -186,4 +189,27 @@ $(document).ready(function(){
         )
     }
 
+    function Get_nutrition(Code){
+        var loc_head;
+        var loc_body;
+        $.post("Get_nutrition.php", {Code: Code})
+        .done(function(data){
+            if(Code == 1){//Arthritis
+                loc_head = document.getElementById("Ar_nutrition_Head");
+                loc_body = document.getElementById("Ar_nutrition_Body");
+            }else{
+                loc_head = document.getElementById("Os_nutrition_Head");
+                loc_body = document.getElementById("Os_nutrition_Body");
+            }
+            let Data = JSON.parse(data);
+            Create_Table(Data, loc_head, loc_body);
+        })
+        .fail(function(jqXHR, textStatus, error){
+            if(jqXHR.status == 404){
+                alert("page not found!");
+            }else if(jqXHR.status == 500){
+                alert("server error!");
+            }
+        })
+    }
 })

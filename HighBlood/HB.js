@@ -1,6 +1,7 @@
 $(document).ready(function(){
     Get_Num_Disease();
     Get_Gender_Disease();
+    Get_nutrition();
 
     function Get_Num_Disease(){
         $.post(
@@ -10,8 +11,8 @@ $(document).ready(function(){
                 let loc_Pie = document.getElementById("HB_All_Pie");
                 let loc_Bar = document.getElementById("HB_All_Bar");
                 let Data = JSON.parse(data);
-                let loc_head = document.getElementById("Rate_Head");
-                let loc_body = document.getElementById("Result_HB_Rate");
+                var loc_head = document.getElementById("Rate_Head");
+                var loc_body = document.getElementById("Result_HB_Rate");
                 let HB = []
                 for(let i = 0; i<4; i++){
                     HB.push(parseInt(Data[1][i]));
@@ -35,8 +36,8 @@ $(document).ready(function(){
                 let loc_Pie = document.getElementById("HB_Gender_Pie");
                 let loc_Bar = document.getElementById("HB_Gender_Bar");
                 let Data = JSON.parse(data);
-                let loc_head = document.getElementById("Gender_Head");
-                let loc_body = document.getElementById("Result_HB_Gender");
+                var loc_head = document.getElementById("Gender_Head");
+                var loc_body = document.getElementById("Result_HB_Gender");
                 let HB = []
                 for(let i=0; i<2; i++){
                     HB.push(parseInt(Data[1][i]));
@@ -50,5 +51,22 @@ $(document).ready(function(){
                 Create_Table(Data, loc_head, loc_body);
             }
         )
+    }
+
+    function Get_nutrition(){
+        var loc_head = document.getElementById("HB_nu_Head");
+        var loc_body = document.getElementById("HB_nu_Body");
+        $.post("Get_nutrition.php",{})
+        .done(function(data){
+            let Data = JSON.parse(data);
+            Create_Table(Data, loc_head, loc_body);
+        })
+        .fail(function(jqXHR, textStatus, error){
+            if(jqXHR.status == 404){
+                alert("page not found!");
+            }else if(jqXHR.status == 500){
+                alert("server error!");
+            }
+        })
     }
 })

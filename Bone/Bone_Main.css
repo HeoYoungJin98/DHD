@@ -9,6 +9,8 @@ body{
     display: flex;
     padding: 0%;
     margin: 0;
+    text-align: center;
+    border-collapse: collapse;
 }
 
 li{
@@ -58,3 +60,4 @@ input[type=radio]:checked + label{
 .bar{
     margin:0% 4%;
 }
+

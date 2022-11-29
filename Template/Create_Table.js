@@ -1,4 +1,15 @@
 function Create_Table(array, loc_head, loc_body){
+    let head = loc_head;
+    let body = loc_body;
+
+    while(head.hasChildNodes()){
+        head.removeChild(head.firstChild);
+    }
+
+    while(body.hasChildNodes()){
+        body.removeChild(body.firstChild);
+    }
+
     let length = array.length; //array length
     let r = 0;
     let c = array[0].length;
