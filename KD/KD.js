@@ -1,6 +1,7 @@
 $(document).ready(function(){
     Get_Num_Disease();
     Get_Gender_Disease();
+    Get_nutrition();
 
     function Get_Num_Disease(){
         $.post(
@@ -50,5 +51,21 @@ $(document).ready(function(){
                 Create_Table(Data, loc_head, loc_body);
             }
         )
+    }
+    function Get_nutrition(){
+        var loc_head = document.getElementById("KD_nu_Head");
+        var loc_body = document.getElementById("KD_nu_Body");
+        $.post("Get_nutrition.php",{})
+        .done(function(data){
+            let Data = JSON.parse(data);
+            Create_Table(Data, loc_head, loc_body);
+        })
+        .fail(function(jqXHR, textStatus, error){
+            if(jqXHR.status == 404){
+                alert("page not found!");
+            }else if(jqXHR.status == 500){
+                alert("server error!");
+            }
+        })
     }
 })
